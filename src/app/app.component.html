@@ -1,0 +1,73 @@
+<header>
+  <div class="angular-logo"><img src="/img/angular.png" alt="Feito com Angular2 by Rafael Rincon Natal"></div>
+  <nav>  
+    <ul class="menu">
+      <li class="menu-item">
+        <a [routerLink]="['']">Home</a>
+      </li>
+      <li class="menu-item">
+        <a [routerLink]="['']">Header</a>
+        <ul class="sub-menu">
+          <li class="sub-menu-item">Fundo (Banner e Cabeçalho)</li>
+          <li class="sub-menu-item"><a [routerLink]="['menu-comp']">Menu</a></li>
+          <li class="sub-menu-item">Pesquisas</li>
+          <li class="sub-menu-item">Pesquisa por código</li>
+          <li class="sub-menu-item">Topo Interno</li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a [routerLink]="['']">Destaque</a>
+        <ul class="sub-menu">
+          <li class="sub-menu-item">Destaque Estrutura</li>
+          <li class="sub-menu-item">Destaque Item</li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a [routerLink]="['']">Index</a>
+        <ul class="sub-menu">
+          <li class="sub-menu-item">Blocos (Estruturas/Chamadas)</li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a [routerLink]="['']">Footer</a>
+        <ul class="sub-menu">
+          <li class="sub-menu-item">Menu</li>
+          <li class="sub-menu-item">Contatos</li>
+          <li class="sub-menu-item">Copyrights</li>
+        </ul>
+      </li>
+       <li class="menu-item">
+        <a [routerLink]="['about']">Pesquisa/Resultado</a>
+        <ul class="sub-menu">
+          <li class="sub-menu-item">Estruturas</li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a [routerLink]="['']">Outros</a>
+        <ul class="sub-menu">
+          <li class="sub-menu-item">Formulario</li>
+          <li class="sub-menu-item">Paginação</li>
+          <li class="sub-menu-item">Icones</li>
+          <li class="sub-menu-item">Animações</li>
+          <li class="sub-menu-item">Botões</li>
+          <li class="sub-menu-item">Bancos logos</li>
+          <li class="sub-menu-item">Favoritos</li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a [routerLink]="['about']">About</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main>
+  
+
+  <!-- Images (and assets) are parsed and loaded from within the public directory -->
+  
+
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <a [href]="url">Webpack Angular 2 Starter</a>
+</footer>

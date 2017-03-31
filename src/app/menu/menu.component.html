@@ -1,0 +1,100 @@
+<h2>Menu</h2>
+<section class="build-canvas">
+    <nav>
+        <ul #menumock [innerHTML]="menulinks" class="menumock" id="menumock">
+            
+        </ul>
+    </nav>
+</section>
+<h2>Controles</h2>
+<section class="controls">
+<form class="">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#"  data-toggle="tab">Configuração Inicial</a></li>
+    <li><a href="#"  role="tab" data-toggle="tab">Cores</a></li>
+    <li><a href="#"  role="tab" data-toggle="tab">Icones</a></li>
+    <li><a href="#"  role="tab" data-toggle="tab">Posição</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="confpadrao">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="menu-itens">Qtd. Menu Links</label>
+                        <select class="form-control" #links (change)="QtdLinks(links.value)">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                       
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="divisor">Divisor</label>
+                        <select class="form-control">
+                            <option>nenhum</option>
+                            <option>|</option>
+                            <option>•</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="menu-itens">Submenu</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-itens">Submenu (show border)</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="menu-box">Menu-box (ul show background)</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-box">Menu-box (ul show border)</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="menu-box">Menu-box (ul border radius)</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="cores">...</div>
+    <div role="tabpanel" class="tab-pane" id="icones">...</div>
+    <div role="tabpanel" class="tab-pane" id="posicao">...</div>
+  </div>
+</form>
+</section>
+
+

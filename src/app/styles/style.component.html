@@ -1,0 +1,28 @@
+<div class="col-md-12">
+    <div class="form-group">
+        <select class="form-control selectStyle" #selectStyle >
+            <option>Select</option>
+            <option value="Color">color:</option>
+            <option value="FontSize">font-size:</option>
+            <option value="FontWeight">font-weight:</option>
+            <option value="Border">border:</option>
+            <option value="BorderTop">border-top:</option>
+            <option value="BorderBottom">border-bottom:</option>
+            <option value="BorderLeft">border-left:</option>
+            <option value="BorderRight">border-right:</option>
+            <option value="BorderLeft">border-left:</option>
+            <option value="TextShadow">text-shadow:</option>
+            <option value="Margin">margin:</option>
+            <option value="MarginTop">margin-top:</option>
+            <option value="MarginBottom">margin-bottom:</option>
+            <option value="MarginLeft">margin-left:</option>
+            <option value="MarginRight">margin-right:</option>
+            <option value="Padding">padding:</option>
+            <option value="PaddingTop">padding-top:</option>
+            <option value="PaddingBottom">padding-bottom:</option>
+            <option value="PaddingLeft">padding-left:</option>
+            <option value="PaddingRight">padding-right:</option>
+        </select>
+        <input type="text" #styleValueSelected (change)="setStyle(selectStyle.value,styleValueSelected.value)" name="selectSt" class="inputStyle" />
+    </div>
+</div>

@@ -1,0 +1,174 @@
+<h2>Menu</h2>
+<section class="build-canvas">
+    <nav>
+        <menu2-link class="menumock" *ngFor="let menulink of menulinks"  [menulink]="menulink" [TextShadow]="TextShadow"  [PaddingLeft]="PaddingLeft" [PaddingRight]="PaddingRight" [PaddingBottom]="PaddingBottom"  [PaddingTop]="PaddingTop"  [Padding]="Padding"   [MarginLeft]="MarginLeft" [MarginRight]="MarginRight" [MarginBottom]="MarginBottom"  [MarginTop]="MarginTop"  [Margin]="Margin"  [BorderRight]="BorderRight" [BorderLeft]="BorderLeft" [BorderBottom]="BorderBottom" [BorderTop]="BorderTop" [Border]="Border" [FontWeight]="FontWeight" [MenuName]="MenuName" [Color]="Color" [FontSize]="FontSize">
+            </menu2-link>
+        
+    </nav>
+</section>
+<h2>Controles</h2>
+<section class="controls">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#"  data-toggle="tab" (click)="changeTab('confpadrao')">Configuração Inicial</a></li>
+    <li><a href="#"  role="tab" data-toggle="tab" (click)="changeTab('cores')">Sass</a></li>
+    <li><a href="#"  role="tab" data-toggle="tab" (click)="changeTab('icones')">Icones</a></li>
+    <li><a href="#"  role="tab" data-toggle="tab" (click)="changeTab('position')">Posição</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="confpadrao">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                   <div class="form-group">
+                        <label for="menu-itens">Qtd. Menu Links</label>
+                        <select class="form-control" #links (change)="AddLinks(links.value)">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>     
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="divisor">Divisor</label>
+                        <select class="form-control">
+                            <option>nenhum</option>
+                            <option>|</option>
+                            <option>•</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="menu-itens">Submenu</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-itens">Submenu (show border)</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="menu-box">Menu-box (ul show background)</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-box">Menu-box (ul show border)</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="menu-box">Menu-box (ul border radius)</label>
+                        <select class="form-control">
+                            <option>sim</option>
+                            <option>não</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="menu-itens">text-shadow ex.: 2px 2px 2px #000 </label><br>
+                        <input type="text" #fontColor [(ngModel)]="TextShadow" name="shadow" />
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="cores">
+          <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" (click)="addComboStyle()">Add Style</button>
+                    </div>
+                </div>
+                <drop-styles *ngFor="let drops of styleDrops" (setVariable)="setStyle($event)"></drop-styles>
+            
+            </div>
+        </div>   
+    </div>
+    <div role="tabpanel" class="tab-pane" id="icones">...</div>
+    <div role="tabpanel" class="tab-pane" id="posicao">...</div>
+  </div>
+
+</section>
+
+<h2>Código</h2>
+<section class="codigo">
+    // Instruções:
+    <br>
+    // Código PHP
+    <br>
+    // Sass<br><br>
+    {{Code}}<br>
+    {{TextColor}}<br>
+    {{TextFontSize}}
+ <!--   .menu {
+	.menu-item {
+			
+        .menu-link {
+            
+        }
+	
+		&:hover {
+			background-color: rgba(255,255,255,0.4);
+		}
+		
+       
+	}
+	.menu-link, .sub-menu-link {
+	
+	}
+	
+	.sub-menu {
+		
+
+		.sub-menu-link{
+			
+		}
+		
+	}
+	.sub-menu-1{
+		width: 209px;
+	}
+	.sub-menu-item {
+		
+		
+		&:hover{
+			.sub-menu-2 {
+				
+			}
+		}
+	}
+	.sub-menu-2{
+		
+		.sub-menu-link{
+			
+		}
+	}
+}-->
+
+</section>
