@@ -34,101 +34,128 @@ PaddingLeft:number=0;
 PaddingRight:number=0;
 PaddingTop:number=0;
 PaddingBottom:number=0;  
-MenuLinkCode:Array<string> = [];
-MenuLinkTemplate:string;
+MenuLinkCode:string = "";
+MenuLinkTemplate:string = ".menu-item{\n}";
 
   constructor() {
   
+  }
+
+  checkIsThere(test:string){
+
+    if(document.getElementById(test)){
+      return true;
+    }else{
+      return false;
+    }
+
   }
 
   setStyle(values:any){
    var splits = values.split(";");
    var selectedVar = splits[0];
    var valor = splits[1];
-   
+  
+    
 
   if(selectedVar == 'Color'){
     this.Color = valor;
-    this.MenuLinkCode.push("color:" + valor + ';');
+
+    if(!this.checkIsThere('colors')){
+      console.log("is false adding html");
+    this.MenuLinkCode += `<div id="colors" class="fields">color: ${ this.Color  };</div>`;
+    }else{
+      console.log("is true adding text");
+        document.getElementById('colors').innerHTML="color:" + valor ;
+        // criar hidden field com campos template para alterar e depois fazer verificação nestes campos alterar valor e depois display no html.
+      }
   }
   if(selectedVar == 'FontSize') {
     this.FontSize = valor;
-    this.MenuLinkCode.push("font-size:" + valor + ';');
+     if(!this.checkIsThere('fontsize')){
+     this.MenuLinkCode += `<div id="fontsize" class="fields">font-size: ${this.FontSize};</div>`;
+     }else{
+       document.getElementById('fontsize').innerHTML=`font-size: ${this.FontSize};`;
+     }
   }
   if(selectedVar == 'FontWeight') {
     this.FontWeight = valor;
-   this.MenuLinkCode.push("font-weight:" + valor + ';');
+     this.MenuLinkCode += `font-weight: ${this.FontWeight};\n`;
   }
   if(selectedVar == 'Border'){
      this.Border = valor;
-     this.MenuLinkCode.push("border:" + valor + ';');
-    }
+      this.MenuLinkCode += `border: ${this.Border};\n`;
+  }
   if(selectedVar == 'BorderTop') {
     this.BorderTop = valor;
-    this.MenuLinkCode.push("border-top:" + valor + ';');
+    this.MenuLinkCode += `border-top: ${this.BorderTop};\n`;
   }
   if(selectedVar == 'BorderBottom') {
     this.BorderBottom = valor;
-    this.MenuLinkCode.push("border-bottom:" + valor + ';');
+     this.MenuLinkCode += `border-bottom: ${this.BorderBottom};\n`;
   }
   if(selectedVar == 'BorderLeft') {
     this.BorderLeft = valor;
-    this.MenuLinkCode.push("border-left:" + valor + ';');
+    this.MenuLinkCode += `border-left: ${this.BorderLeft};\n`;
   }
   if(selectedVar == 'BorderRight') {
     this.BorderRight = valor;
-   this.MenuLinkCode.push("border-right:" + valor + ';');
+   this.MenuLinkCode += `border-right: ${this.BorderRight};\n`;
   }
   if(selectedVar == 'TextShadow') {
     this.TextShadow = valor;
-    this.MenuLinkCode.push("text-shadow:" + valor + ';');
+   this.MenuLinkCode += `text-shadow: ${this.TextShadow};\n`;
   }
   if(selectedVar == 'Margin') {
     this.Margin = valor;
-    this.MenuLinkCode.push("margin:" + valor + ';');
+     this.MenuLinkCode += `margin: ${this.Margin};\n`;
   }
   if(selectedVar == 'MarginTop') {
     this.MarginTop = valor;
-    this.MenuLinkCode.push("margin-top:" + valor + ';');
+   this.MenuLinkCode += `margin-top: ${this.MarginTop};\n`;
   }
   if(selectedVar == 'MarginBottom') {
     this.MarginBottom = valor;
-    this.MenuLinkCode.push("margin-bottom:" + valor + ';');
+     this.MenuLinkCode += `margin-bottom: ${this.MarginBottom};\n`;
   }
   if(selectedVar == 'MarginLeft') {
     this.MarginLeft = valor;
-    this.MenuLinkCode.push("margin-left:" + valor + ';');
+    this.MenuLinkCode += `margin-left: ${this.MarginLeft};\n`;
   }
   if(selectedVar == 'MarginRight') {
     this.MarginRight = valor;
-    this.MenuLinkCode.push("margin-right:" + valor + ';');
+   this.MenuLinkCode += `margin-right: ${this.MarginRight};\n`;
   }
   if(selectedVar == 'Padding') {
     this.Padding = valor;
-    this.MenuLinkCode.push("padding:" + valor + ';');
+     this.MenuLinkCode += `padding: ${this.Padding};\n`;
   }
   if(selectedVar == 'PaddingTop') {
     this.PaddingTop = valor;
-    this.MenuLinkCode.push("padding-top:" + valor + ';');
+     this.MenuLinkCode += `padding-top: ${this.PaddingTop};\n`;
   }
   if(selectedVar == 'PaddingBottom'){ 
     this.PaddingBottom = valor;
-    this.MenuLinkCode.push("padding-bottom:" + valor + ';');
+     this.MenuLinkCode += `padding-bottom: ${this.PaddingBottom};\n`;
   }
   if(selectedVar == 'PaddingLeft') {
-    this.MenuLinkCode.push("padding-left:" + valor + ';');
+    this.PaddingLeft = valor;
+     this.MenuLinkCode += `padding-left: ${this.PaddingLeft};\n`;
   }
   if(selectedVar == 'PaddingRight') {
-    this.MenuLinkCode.push("padding-right:" + valor + ';');
+     this.PaddingRight = valor;
+     this.MenuLinkCode += `padding-right: ${this.PaddingRight};\n`;
   }
- console.log(this.MenuLinkCode);
-  this.MenuLinkTemplate = '\n';
-
-  for(let i; i< this.MenuLinkCode.length; i++){
-        this.MenuLinkTemplate += this.MenuLinkCode[i] + '\n'; 
-  }
-
-  console.log(this.MenuLinkTemplate);
+  
+    
+    this.MenuLinkTemplate =".menu-item{\n";
+    this.MenuLinkTemplate +=this.MenuLinkCode;
+    this.MenuLinkTemplate +="\n}";
+    //document.getElementById("sass").innerHTML = this.MenuLinkTemplate;
+   
+    console.log("MenuLinkCode: " + this.MenuLinkCode);
+    console.log("MenuLinkTemplate: " + this.MenuLinkTemplate);
+  
    
 }
 
@@ -136,19 +163,7 @@ MenuLinkTemplate:string;
     this.styleDrops.push(new StyleComponent());
   }
 
-  getCode(){
-
-    var strinj=`
-     .menu-link{
-        color:#000;
-        font-size:12px;
-        font-weight:bold;
-     }
-    `;
-
-    return strinj;
-    
-  }
+  
 
   AddLinks(numoflinks:number){
     this.menulinks=[];
