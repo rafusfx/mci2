@@ -34,7 +34,8 @@ PaddingLeft:number=0;
 PaddingRight:number=0;
 PaddingTop:number=0;
 PaddingBottom:number=0;  
-MenuLinkCode:string = "{";
+MenuLinkCode:Array<string> = [];
+MenuLinkTemplate:string;
 
   constructor() {
   
@@ -47,37 +48,107 @@ MenuLinkCode:string = "{";
    
 
   if(selectedVar == 'Color'){
-    this.Color = valor
-    this.MenuLinkCode += 'color:'+ valor + ',';
-  };
+    this.Color = valor;
+    this.MenuLinkCode.push("color:" + valor + ';');
+  }
   if(selectedVar == 'FontSize') {
-    this.FontSize = valor
+    this.FontSize = valor;
+    this.MenuLinkCode.push("font-size:" + valor + ';');
+  }
+  if(selectedVar == 'FontWeight') {
+    this.FontWeight = valor;
+   this.MenuLinkCode.push("font-weight:" + valor + ';');
+  }
+  if(selectedVar == 'Border'){
+     this.Border = valor;
+     this.MenuLinkCode.push("border:" + valor + ';');
+    }
+  if(selectedVar == 'BorderTop') {
+    this.BorderTop = valor;
+    this.MenuLinkCode.push("border-top:" + valor + ';');
+  }
+  if(selectedVar == 'BorderBottom') {
+    this.BorderBottom = valor;
+    this.MenuLinkCode.push("border-bottom:" + valor + ';');
+  }
+  if(selectedVar == 'BorderLeft') {
+    this.BorderLeft = valor;
+    this.MenuLinkCode.push("border-left:" + valor + ';');
+  }
+  if(selectedVar == 'BorderRight') {
+    this.BorderRight = valor;
+   this.MenuLinkCode.push("border-right:" + valor + ';');
+  }
+  if(selectedVar == 'TextShadow') {
+    this.TextShadow = valor;
+    this.MenuLinkCode.push("text-shadow:" + valor + ';');
+  }
+  if(selectedVar == 'Margin') {
+    this.Margin = valor;
+    this.MenuLinkCode.push("margin:" + valor + ';');
+  }
+  if(selectedVar == 'MarginTop') {
+    this.MarginTop = valor;
+    this.MenuLinkCode.push("margin-top:" + valor + ';');
+  }
+  if(selectedVar == 'MarginBottom') {
+    this.MarginBottom = valor;
+    this.MenuLinkCode.push("margin-bottom:" + valor + ';');
+  }
+  if(selectedVar == 'MarginLeft') {
+    this.MarginLeft = valor;
+    this.MenuLinkCode.push("margin-left:" + valor + ';');
+  }
+  if(selectedVar == 'MarginRight') {
+    this.MarginRight = valor;
+    this.MenuLinkCode.push("margin-right:" + valor + ';');
+  }
+  if(selectedVar == 'Padding') {
+    this.Padding = valor;
+    this.MenuLinkCode.push("padding:" + valor + ';');
+  }
+  if(selectedVar == 'PaddingTop') {
+    this.PaddingTop = valor;
+    this.MenuLinkCode.push("padding-top:" + valor + ';');
+  }
+  if(selectedVar == 'PaddingBottom'){ 
+    this.PaddingBottom = valor;
+    this.MenuLinkCode.push("padding-bottom:" + valor + ';');
+  }
+  if(selectedVar == 'PaddingLeft') {
+    this.MenuLinkCode.push("padding-left:" + valor + ';');
+  }
+  if(selectedVar == 'PaddingRight') {
+    this.MenuLinkCode.push("padding-right:" + valor + ';');
+  }
+ console.log(this.MenuLinkCode);
+  this.MenuLinkTemplate = '\n';
+
+  for(let i; i< this.MenuLinkCode.length; i++){
+        this.MenuLinkTemplate += this.MenuLinkCode[i] + '\n'; 
+  }
+
+  console.log(this.MenuLinkTemplate);
    
-  };
-  if(selectedVar == 'FontWeight') this.FontWeight = valor;
-  if(selectedVar == 'Border') this.Border = valor;
-  if(selectedVar == 'BorderTop') this.BorderTop = valor;
-  if(selectedVar == 'BorderBottom') this.BorderBottom = valor;
-  if(selectedVar == 'BorderLeft') this.BorderLeft = valor;
-  if(selectedVar == 'BorderRight') this.BorderRight = valor;
-  if(selectedVar == 'TextShadow') this.TextShadow = valor;
-  if(selectedVar == 'Margin') this.Margin = valor;
-  if(selectedVar == 'MarginTop') this.MarginTop = valor;
-  if(selectedVar == 'MarginBottom') this.MarginBottom = valor;
-  if(selectedVar == 'MarginLeft') this.MarginLeft = valor;
-  if(selectedVar == 'MarginRight') this.MarginRight = valor;
-  if(selectedVar == 'Padding') this.Padding = valor;
-  if(selectedVar == 'PaddingTop') this.PaddingTop = valor;
-  if(selectedVar == 'PaddingBottom') this.PaddingBottom = valor;
-  if(selectedVar == 'PaddingLeft') this.PaddingLeft = valor;
-  if(selectedVar == 'PaddingRight') this.PaddingRight = valor;
 }
 
    addComboStyle(){
     this.styleDrops.push(new StyleComponent());
   }
 
+  getCode(){
 
+    var strinj=`
+     .menu-link{
+        color:#000;
+        font-size:12px;
+        font-weight:bold;
+     }
+    `;
+
+    return strinj;
+    
+  }
 
   AddLinks(numoflinks:number){
     this.menulinks=[];
